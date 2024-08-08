@@ -9,6 +9,7 @@ public class OrderTable {
 	private Float totalamount;
 	private String status;
 	private String paymentmode;
+
 	
 	public OrderTable() {
 		// TODO Auto-generated constructor stub
