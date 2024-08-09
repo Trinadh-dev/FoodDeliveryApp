@@ -11,8 +11,7 @@ public class Restaurant {
 	private String address;
 	private Float rating;
 	private boolean isactive;
-	private boolean admin_id;
-	private String imagepath;
+	private int admin_id;
 	
 	
 	public Restaurant() {
@@ -20,7 +19,7 @@ public class Restaurant {
 	}
 
 	public Restaurant(int restaurant_id, String restaurantname, String cuisine_type, String address, Float rating,
-			boolean isactive, boolean admin_id, String imagepath) {
+			boolean isactive, int admin_id) {
 		super();
 		this.restaurant_id = restaurant_id;
 		this.restaurantname = restaurantname;
@@ -29,11 +28,10 @@ public class Restaurant {
 		this.rating = rating;
 		this.isactive = isactive;
 		this.admin_id = admin_id;
-		this.imagepath = imagepath;
 	}
 
 	public Restaurant(String restaurantname, String cuisine_type, String address, Float rating, boolean isactive,
-			boolean admin_id, String imagepath) {
+			int admin_id) {
 		super();
 		this.restaurantname = restaurantname;
 		this.cuisine_type = cuisine_type;
@@ -41,7 +39,6 @@ public class Restaurant {
 		this.rating = rating;
 		this.isactive = isactive;
 		this.admin_id = admin_id;
-		this.imagepath = imagepath;
 	}
 
 	public int getRestaurant_id() {
@@ -92,27 +89,20 @@ public class Restaurant {
 		this.isactive = isactive;
 	}
 
-	public boolean isAdmin_id() {
+	public int isAdmin_id() {
 		return admin_id;
 	}
 
-	public void setAdmin_id(boolean admin_id) {
+	public void setAdmin_id(int admin_id) {
 		this.admin_id = admin_id;
 	}
 
-	public String getImagepath() {
-		return imagepath;
-	}
-
-	public void setImagepath(String imagepath) {
-		this.imagepath = imagepath;
-	}
 
 	@Override
 	public String toString() {
 		return "Restaurant [restaurant_id=" + restaurant_id + ", restaurantname=" + restaurantname + ", cuisine_type="
 				+ cuisine_type + ", address=" + address + ", rating=" + rating + ", isactive=" + isactive
-				+ ", admin_id=" + admin_id + ", imagepath=" + imagepath + "]";
+				+ ", admin_id=" + admin_id + "]";
 	}
 	
 }

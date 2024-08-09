@@ -18,11 +18,17 @@ public class UserImplementation implements UserDao {
 	PreparedStatement pstatement;
 	Statement statement;
 	ResultSet result;
+	int status;
+	List<User> list=new ArrayList<User>();
 	
 	
 	
 	private static final String INSERT_USER="Insert into `user`(`username`,`email`,`phonenumber`,`password`,`address`) values(?,?,?,?,?)";
-	private static final String FETCH_ALL_USERS="select * from user";
+	private static final String FETCH_ALL_USERS="select * from `user`";
+	private static final String FETECH_BY_MAIL="select * from `user` where `email`=?";
+	private static final String UPDATE_DETAILS="update `user` set `username`=?,`email`=?,`phonenumber`=?,`password`=?,`address`=? where user_id=?";
+	private static final String DELETE_USER="delete from `user` where `user_id`=?";
+	
 	
 	public UserImplementation() {
 		try {
@@ -31,7 +37,6 @@ public class UserImplementation implements UserDao {
 			e.printStackTrace();
 		}
 	}
-	
 	
 	//To insert the user into the DataBase This method is used 
 	@Override
@@ -47,18 +52,20 @@ public class UserImplementation implements UserDao {
 			pstatement.setString(4, user.getPassword());
 			pstatement.setString(5, user.getAddress());
 			
-			int status = pstatement.executeUpdate();
+			status = pstatement.executeUpdate();
 			if(status==1) {
 				System.out.println("Success");
 			}
 			else {
 				System.out.println("Failure");
 			}
+			
+			
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		
-		return 0;
+		return status;
 	}
 
 	
@@ -69,11 +76,86 @@ public class UserImplementation implements UserDao {
 		
 		
 		try {
+			
 			statement = con.createStatement();
 			result = statement.executeQuery(FETCH_ALL_USERS);
+			list=getdetailsofuser(result);
 			
-			List<User> list=new ArrayList<User>();
+		} 
+		
+		catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		return list;
+	}
+
+	@Override
+	public User fetchByMail(String email) {
+
+		try {
 			
+			pstatement=con.prepareStatement(FETECH_BY_MAIL);
+			pstatement.setString(1, email);
+			result=pstatement.executeQuery();
+			list=getdetailsofuser(result);
+				
+		} 
+		catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return list.get(0);
+	}
+	
+
+	@Override
+	public int updateDetails(User user) {
+		
+		try {
+			
+			pstatement=con.prepareStatement(UPDATE_DETAILS);
+			pstatement.setString(1, user.getUsername());
+			pstatement.setString(2, user.getEmail());
+			pstatement.setString(3, user.getPhonenumber());
+			pstatement.setString(4, user.getPassword());
+			pstatement.setString(5, user.getAddress());
+			pstatement.setInt(6, user.getUser_id());
+			
+			status=pstatement.executeUpdate();
+			
+		} 
+		catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		return status;
+	}
+
+	@Override
+	public int delete(int userId) {
+		
+		try {
+			
+			pstatement=con.prepareStatement(DELETE_USER);
+			pstatement.setInt(1, userId);
+			status=pstatement.executeUpdate();
+			
+			
+		} 
+		catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+
+		return status;
+		
+	}
+	
+	
+	
+	public List<User> getdetailsofuser(ResultSet result) {
+		
+		try {
 			while(result.next()) {
 				int user_id=result.getInt(1);
 				String username=result.getString(2);
@@ -84,33 +166,11 @@ public class UserImplementation implements UserDao {
 				
 				list.add(new User(user_id, username, password, email, address, phonenumber));
 			}
-			
-			
-		} catch (SQLException e) {
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
+		return list;
 		
-		
-		
-		return null;
-	}
-
-	@Override
-	public User fetchByMail(int mail) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public int updatePassword(User user) {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
-	@Override
-	public int delete(int userId) {
-		// TODO Auto-generated method stub
-		return 0;
 	}
 
 }

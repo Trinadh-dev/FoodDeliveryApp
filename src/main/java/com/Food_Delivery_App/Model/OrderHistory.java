@@ -10,7 +10,7 @@ public class OrderHistory {
 	private String status;
 	
 	public OrderHistory() {
-		// TODO Auto-generated constructor stub
+
 	}
 
 	public OrderHistory(int orderhistory_id, int order_id, int user_id, String orderdate, Float totalamount,

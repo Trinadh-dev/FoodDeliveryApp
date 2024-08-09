@@ -5,7 +5,6 @@ public class OrderTable {
 	private int order_id;
 	private int restaurant_id;
 	private int user_id;
-	private String orderdate;
 	private Float totalamount;
 	private String status;
 	private String paymentmode;
@@ -15,24 +14,22 @@ public class OrderTable {
 		// TODO Auto-generated constructor stub
 	}
 
-	public OrderTable(int order_id, int restaurant_id, int user_id, String orderdate, Float totalamount, String status,
+	public OrderTable(int order_id, int restaurant_id, int user_id,  Float totalamount, String status,
 			String paymentmode) {
 		super();
 		this.order_id = order_id;
 		this.restaurant_id = restaurant_id;
 		this.user_id = user_id;
-		this.orderdate = orderdate;
 		this.totalamount = totalamount;
 		this.status = status;
 		this.paymentmode = paymentmode;
 	}
 
-	public OrderTable(int restaurant_id, int user_id, String orderdate, Float totalamount, String status,
+	public OrderTable(int restaurant_id, int user_id,  Float totalamount, String status,
 			String paymentmode) {
 		super();
 		this.restaurant_id = restaurant_id;
 		this.user_id = user_id;
-		this.orderdate = orderdate;
 		this.totalamount = totalamount;
 		this.status = status;
 		this.paymentmode = paymentmode;
@@ -62,14 +59,6 @@ public class OrderTable {
 		this.user_id = user_id;
 	}
 
-	public String getOrderdate() {
-		return orderdate;
-	}
-
-	public void setOrderdate(String orderdate) {
-		this.orderdate = orderdate;
-	}
-
 	public Float getTotalamount() {
 		return totalamount;
 	}
@@ -97,7 +86,7 @@ public class OrderTable {
 	@Override
 	public String toString() {
 		return "OrderTable [order_id=" + order_id + ", restaurant_id=" + restaurant_id + ", user_id=" + user_id
-				+ ", orderdate=" + orderdate + ", totalamount=" + totalamount + ", status=" + status + ", paymentmode="
+				+ ", totalamount=" + totalamount + ", status=" + status + ", paymentmode="
 				+ paymentmode + "]";
 	}
 	

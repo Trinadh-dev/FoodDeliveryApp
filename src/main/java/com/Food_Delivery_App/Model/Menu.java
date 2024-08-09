@@ -8,14 +8,12 @@ public class Menu {
 	private Float price;
 	private String description;
 	private boolean isavailable;
-	private String imagepath;
 	
 	public Menu() {
-		// TODO Auto-generated constructor stub
+		
 	}
 
-	public Menu(int menu_id, int restaurant_id, String menuname, Float price, String description, boolean isavailable,
-			String imagepath) {
+	public Menu(int menu_id, int restaurant_id, String menuname, Float price, String description, boolean isavailable) {
 		super();
 		this.menu_id = menu_id;
 		this.restaurant_id = restaurant_id;
@@ -23,18 +21,15 @@ public class Menu {
 		this.price = price;
 		this.description = description;
 		this.isavailable = isavailable;
-		this.imagepath = imagepath;
 	}
 
-	public Menu(int restaurant_id, String menuname, Float price, String description, boolean isavailable,
-			String imagepath) {
+	public Menu(int restaurant_id, String menuname, Float price, String description, boolean isavailable) {
 		super();
 		this.restaurant_id = restaurant_id;
 		this.menuname = menuname;
 		this.price = price;
 		this.description = description;
 		this.isavailable = isavailable;
-		this.imagepath = imagepath;
 	}
 
 	public int getMenu_id() {
@@ -85,19 +80,11 @@ public class Menu {
 		this.isavailable = isavailable;
 	}
 
-	public String getImagepath() {
-		return imagepath;
-	}
-
-	public void setImagepath(String imagepath) {
-		this.imagepath = imagepath;
-	}
 
 	@Override
 	public String toString() {
 		return "Menu [menu_id=" + menu_id + ", restaurant_id=" + restaurant_id + ", menuname=" + menuname + ", price="
-				+ price + ", description=" + description + ", isavailable=" + isavailable + ", imagepath=" + imagepath
-				+ "]";
+				+ price + ", description=" + description + ", isavailable=" + isavailable + "]";
 	}
 	
 	
