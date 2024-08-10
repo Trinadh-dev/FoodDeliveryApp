@@ -12,7 +12,7 @@ import com.Food_Delivery_App.DAO.UserDao;
 import com.Food_Delivery_App.Model.User;
 import com.Food_Delivery_App.Uitl.DBConnector;
 
-public class UserImplementation implements UserDao {
+public class UserDaoImplementation implements UserDao {
 	
 	Connection con;
 	PreparedStatement pstatement;
@@ -26,11 +26,12 @@ public class UserImplementation implements UserDao {
 	private static final String INSERT_USER="Insert into `user`(`username`,`email`,`phonenumber`,`password`,`address`) values(?,?,?,?,?)";
 	private static final String FETCH_ALL_USERS="select * from `user`";
 	private static final String FETECH_BY_MAIL="select * from `user` where `email`=?";
+	private static final String FETECH_BY_USERNAME="select * from `user` where `username`=?";
 	private static final String UPDATE_DETAILS="update `user` set `username`=?,`email`=?,`phonenumber`=?,`password`=?,`address`=? where user_id=?";
 	private static final String DELETE_USER="delete from `user` where `user_id`=?";
 	
 	
-	public UserImplementation() {
+	public UserDaoImplementation() {
 		try {
 			con=DBConnector.connect();
 		} catch (Exception e) {
@@ -104,6 +105,31 @@ public class UserImplementation implements UserDao {
 		catch (SQLException e) {
 			e.printStackTrace();
 		}
+		
+		if(list.isEmpty()) {
+			return null;
+		}
+		
+		return list.get(0);
+	}
+	
+	public User fetchByUserName(String username) {
+
+		try {
+			
+			pstatement=con.prepareStatement(FETECH_BY_USERNAME);
+			pstatement.setString(1, username);
+			result=pstatement.executeQuery();
+			list=getdetailsofuser(result);
+				
+		} 
+		catch (SQLException e) {
+			e.printStackTrace();
+		}
+		if(list.isEmpty()) {
+			return null;
+		}
+		
 		return list.get(0);
 	}
 	

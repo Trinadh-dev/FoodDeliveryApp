@@ -1,0 +1,92 @@
+@charset "UTF-8";
+body {
+    font-family: 'Montserrat', sans-serif;
+    margin: 0;
+    padding: 0;
+    background: #f6f5f7;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #333;
+    padding: 10px 20px;
+}
+
+.navbar .logo img {
+    height: 50px;
+}
+
+.navbar .nav-links {
+    list-style-type: none;
+    display: flex;
+    gap: 20px;
+}
+
+.navbar .nav-links li {
+    display: inline;
+}
+
+.navbar .nav-links a, .navbar .nav-links input {
+    color: white;
+    text-decoration: none;
+    padding: 8px 15px;
+}
+
+.navbar .nav-links input {
+    background-color: #555;
+    border: none;
+    color: white;
+    padding: 5px;
+}
+
+.carousel {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin: 20px 0;
+}
+
+.carousel img {
+    width: 30%;
+    height: auto;
+    border-radius: 10px;
+}
+
+.restaurant-cards {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    padding: 20px;
+}
+
+.card {
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    width: 300px;
+    padding: 15px;
+    text-align: center;
+}
+
+.card img {
+    width: 100%;
+    border-radius: 10px 10px 0 0;
+}
+
+.card-content {
+    padding: 10px;
+}
+
+.contact-us {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 20px;
+}
+
+.contact-us h2, .contact-us p {
+    margin: 5px 0;
+}
