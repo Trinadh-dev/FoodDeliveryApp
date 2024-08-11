@@ -62,16 +62,24 @@ public class RestaurantDaoImplementation implements RestaurantDao {
 
     @Override
     public List<Restaurant> fetchAllRestaurant() {
+    	List<Restaurant> restaurantList = new ArrayList<>();
         try {
             statement = con.createStatement();
             result = statement.executeQuery(FETCH_ALL_RESTAURANTS);
-            list = getRestaurantDetails(result);
+            restaurantList = getRestaurantDetails(result);
+
+            // Debugging: Check if any restaurants were fetched
+            if (restaurantList.isEmpty()) {
+                System.out.println("No restaurants fetched from the database.");
+            } else {
+                System.out.println("Fetched " + restaurantList.size() + " restaurants.");
+            }
 
         } catch (SQLException e) {
             e.printStackTrace();
         }
 
-        return list;
+        return restaurantList;
     }
 
     @Override
@@ -132,8 +140,8 @@ public class RestaurantDaoImplementation implements RestaurantDao {
                 String address = result.getString(4);
                 float rating = result.getFloat(5);
                 boolean isactive = result.getBoolean(6);
-                int adminid = result.getInt(7);
-                list.add(new Restaurant(restaurant_id, restaurantname, cuisine_type, address, rating, isactive, adminid));
+                String imagepath = result.getString(7);
+                list.add(new Restaurant(restaurant_id, restaurantname, cuisine_type, address, rating, isactive, imagepath));
             }
         } catch (SQLException e) {
             e.printStackTrace();
