@@ -23,7 +23,7 @@ public class MenuDaoImplementation implements MenuDao {
 
     private static final String INSERT_MENU = "INSERT INTO `menu`(`restaurant_id`,`menuname`,`price`,`description`,`isavailable`) VALUES(?,?,?,?,?)";
     private static final String FETCH_ALL_MENUS = "SELECT * FROM `menu`";
-    private static final String FETCH_BY_MENU_ID = "SELECT * FROM `menu` WHERE `menu_id`=?";
+    private static final String FETCH_BY_RESTAURANT_ID = "SELECT * FROM `menu` WHERE `restaurant_id`=?";
     private static final String UPDATE_MENU = "UPDATE `menu` SET `restaurant_id`=?,`menuname`=?,`price`=?,`description`=?,`isavailable`=? WHERE `menu_id`=?";
     private static final String DELETE_MENU = "DELETE FROM `menu` WHERE `menu_id`=?";
 
@@ -70,19 +70,17 @@ public class MenuDaoImplementation implements MenuDao {
     }
 
     @Override
-    public Menu fetchByMenuId(int menuId) {
+    public List<Menu> fetchByRestaurantId(int restaurant_id) {
         Menu menu = null;
         try {
-            pstatement = con.prepareStatement(FETCH_BY_MENU_ID);
-            pstatement.setInt(1, menuId);
+            pstatement = con.prepareStatement(FETCH_BY_RESTAURANT_ID);
+            pstatement.setInt(1, restaurant_id);
             result = pstatement.executeQuery();
-            if (result.next()) {
-                menu = getMenuFromResultSet(result);
-            }
+            list = getMenusFromResultSet(result);
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        return menu;
+        return list;
     }
 
     @Override

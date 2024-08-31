@@ -68,12 +68,12 @@ public class RestaurantDaoImplementation implements RestaurantDao {
             result = statement.executeQuery(FETCH_ALL_RESTAURANTS);
             restaurantList = getRestaurantDetails(result);
 
-            // Debugging: Check if any restaurants were fetched
-            if (restaurantList.isEmpty()) {
-                System.out.println("No restaurants fetched from the database.");
-            } else {
-                System.out.println("Fetched " + restaurantList.size() + " restaurants.");
-            }
+//            // Debugging: Check if any restaurants were fetched
+//            if (restaurantList.isEmpty()) {
+//                System.out.println("No restaurants fetched from the database.");
+//            } else {
+//                System.out.println("Fetched " + restaurantList.size() + " restaurants.");
+//            }
 
         } catch (SQLException e) {
             e.printStackTrace();

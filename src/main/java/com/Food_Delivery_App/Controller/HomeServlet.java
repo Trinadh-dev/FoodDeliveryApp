@@ -14,17 +14,17 @@ import com.Food_Delivery_App.Model.Restaurant;
 @WebServlet("/home")
 public class HomeServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
-    
+
     @Override
-    protected void service(HttpServletRequest request, HttpServletResponse resp) throws ServletException, IOException {
+    protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         RestaurantDaoImplementation restaurantDao = new RestaurantDaoImplementation();
         List<Restaurant> restaurantList = restaurantDao.fetchAllRestaurant();
-        
-        // Use session to store the restaurant list
+
+        // Store the restaurant list in session
         HttpSession session = request.getSession();
         session.setAttribute("restaurantList", restaurantList);
 
-        // Redirect to Home.jsp
-        resp.sendRedirect("Home.jsp");
+        // Forward to Home.jsp
+        request.getRequestDispatcher("Home.jsp").forward(request, response);
     }
 }
