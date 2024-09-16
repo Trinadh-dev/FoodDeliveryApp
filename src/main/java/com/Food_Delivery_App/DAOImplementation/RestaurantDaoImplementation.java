@@ -21,10 +21,10 @@ public class RestaurantDaoImplementation implements RestaurantDao {
     int status;
     List<Restaurant> list = new ArrayList<>();
 
-    private static final String INSERT_RESTAURANT = "INSERT INTO `restaurant` (`restaurantname`, `cuisine_type`, `address`, `rating`, `isactive`, `adminid`) VALUES (?, ?, ?, ?, ?, ?, ?)";
+    private static final String INSERT_RESTAURANT = "INSERT INTO `restaurant` (`restaurantname`, `cuisine_type`, `address`, `rating`, `isactive`) VALUES (?, ?, ?, ?, ?)";
     private static final String FETCH_ALL_RESTAURANTS = "SELECT * FROM `restaurant`";
     private static final String FETCH_BY_RESTAURANT_ID = "SELECT * FROM `restaurant` WHERE `restaurant_id` = ?";
-    private static final String UPDATE_RESTAURANT = "UPDATE `restaurant` SET `restaurantname` = ?, `cuisine_type` = ?, `address` = ?, `rating` = ?, `isactive` = ?, `adminid` = ? WHERE `restaurant_id` = ?";
+    private static final String UPDATE_RESTAURANT = "UPDATE `restaurant` SET `restaurantname` = ?, `cuisine_type` = ?, `address` = ?, `rating` = ?, `isactive` = ? WHERE `restaurant_id` = ?";
     private static final String DELETE_RESTAURANT = "DELETE FROM `restaurant` WHERE `restaurant_id` = ?";
 
     public RestaurantDaoImplementation() {
@@ -44,7 +44,6 @@ public class RestaurantDaoImplementation implements RestaurantDao {
             pstatement.setString(3, restaurant.getAddress());
             pstatement.setFloat(4, restaurant.getRating());
             pstatement.setBoolean(5, restaurant.isIsactive());
-            pstatement.setInt(6, restaurant.getRestaurant_id());
 
             status = pstatement.executeUpdate();
             if(status == 1) {
@@ -62,18 +61,11 @@ public class RestaurantDaoImplementation implements RestaurantDao {
 
     @Override
     public List<Restaurant> fetchAllRestaurant() {
-    	List<Restaurant> restaurantList = new ArrayList<>();
+        List<Restaurant> restaurantList = new ArrayList<>();
         try {
             statement = con.createStatement();
             result = statement.executeQuery(FETCH_ALL_RESTAURANTS);
             restaurantList = getRestaurantDetails(result);
-
-//            // Debugging: Check if any restaurants were fetched
-//            if (restaurantList.isEmpty()) {
-//                System.out.println("No restaurants fetched from the database.");
-//            } else {
-//                System.out.println("Fetched " + restaurantList.size() + " restaurants.");
-//            }
 
         } catch (SQLException e) {
             e.printStackTrace();
@@ -140,7 +132,7 @@ public class RestaurantDaoImplementation implements RestaurantDao {
                 String address = result.getString(4);
                 float rating = result.getFloat(5);
                 boolean isactive = result.getBoolean(6);
-                String imagepath = result.getString(7);
+                byte[] imagepath = result.getBytes(7); // Assuming the image is stored in the 7th column
                 list.add(new Restaurant(restaurant_id, restaurantname, cuisine_type, address, rating, isactive, imagepath));
             }
         } catch (SQLException e) {

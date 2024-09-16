@@ -21,10 +21,11 @@ public class MenuDaoImplementation implements MenuDao {
     int status;
     List<Menu> list = new ArrayList<>();
 
-    private static final String INSERT_MENU = "INSERT INTO `menu`(`restaurant_id`,`menuname`,`price`,`description`,`isavailable`) VALUES(?,?,?,?,?)";
+    private static final String INSERT_MENU = "INSERT INTO `menu`(`restaurant_id`, `menuname`, `price`, `description`, `isavailable`, `imagepath`) VALUES(?,?,?,?,?,?)";
     private static final String FETCH_ALL_MENUS = "SELECT * FROM `menu`";
     private static final String FETCH_BY_RESTAURANT_ID = "SELECT * FROM `menu` WHERE `restaurant_id`=?";
-    private static final String UPDATE_MENU = "UPDATE `menu` SET `restaurant_id`=?,`menuname`=?,`price`=?,`description`=?,`isavailable`=? WHERE `menu_id`=?";
+    private static final String FETCH_BY_Menu_ID = "SELECT * FROM `menu` WHERE `menu_id`=?";
+    private static final String UPDATE_MENU = "UPDATE `menu` SET `restaurant_id`=?, `menuname`=?, `price`=?, `description`=?, `isavailable`=?, `imagepath`=? WHERE `menu_id`=?";
     private static final String DELETE_MENU = "DELETE FROM `menu` WHERE `menu_id`=?";
 
     public MenuDaoImplementation() {
@@ -44,6 +45,7 @@ public class MenuDaoImplementation implements MenuDao {
             pstatement.setFloat(3, menu.getPrice());
             pstatement.setString(4, menu.getDescription());
             pstatement.setBoolean(5, menu.isIsavailable());
+            pstatement.setBytes(6, menu.getImagepath()); // Adding image
 
             status = pstatement.executeUpdate();
             if (status == 1) {
@@ -70,8 +72,21 @@ public class MenuDaoImplementation implements MenuDao {
     }
 
     @Override
-    public List<Menu> fetchByRestaurantId(int restaurant_id) {
+    public Menu fetchByMenuId(int menu_id) {
         Menu menu = null;
+        try {
+            pstatement = con.prepareStatement(FETCH_BY_Menu_ID);
+            pstatement.setInt(1, menu_id);
+            result = pstatement.executeQuery();
+            list = getMenusFromResultSet(result);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return list.isEmpty() ? null : list.get(0);
+    }
+
+    @Override
+    public List<Menu> fetchByRestaurantId(int restaurant_id) {
         try {
             pstatement = con.prepareStatement(FETCH_BY_RESTAURANT_ID);
             pstatement.setInt(1, restaurant_id);
@@ -92,7 +107,8 @@ public class MenuDaoImplementation implements MenuDao {
             pstatement.setFloat(3, menu.getPrice());
             pstatement.setString(4, menu.getDescription());
             pstatement.setBoolean(5, menu.isIsavailable());
-            pstatement.setInt(6, menu.getMenu_id());
+            pstatement.setBytes(6, menu.getImagepath()); // Adding image to update
+            pstatement.setInt(7, menu.getMenu_id());
 
             status = pstatement.executeUpdate();
         } catch (SQLException e) {
@@ -128,7 +144,8 @@ public class MenuDaoImplementation implements MenuDao {
         float price = resultSet.getFloat("price");
         String description = resultSet.getString("description");
         boolean isavailable = resultSet.getBoolean("isavailable");
+        byte[] imagepath = resultSet.getBytes("imagepath"); // Fetch image data
 
-        return new Menu(menu_id, restaurant_id, menuname, price, description, isavailable);
+        return new Menu(menu_id, restaurant_id, menuname, price, description, isavailable, imagepath);
     }
 }

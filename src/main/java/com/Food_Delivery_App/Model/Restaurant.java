@@ -11,14 +11,14 @@ public class Restaurant {
 	private String address;
 	private Float rating;
 	private boolean isactive;
-	private String imagepath;
+	private byte[] imagepath;
 	
 	public Restaurant() {
 		// TODO Auto-generated constructor stub
 	}
 	
 	public Restaurant(int restaurant_id, String restaurantname, String cuisine_type, String address, Float rating,
-			boolean isactive, String imagepath) {
+			boolean isactive, byte[] imagepath) {
 		super();
 		this.restaurant_id = restaurant_id;
 		this.restaurantname = restaurantname;
@@ -30,7 +30,7 @@ public class Restaurant {
 	}
 
 	public Restaurant(String restaurantname, String cuisine_type, String address, Float rating, boolean isactive,
-			String imagepath) {
+			byte[] imagepath) {
 		super();
 		this.restaurantname = restaurantname;
 		this.cuisine_type = cuisine_type;
@@ -88,13 +88,13 @@ public class Restaurant {
 		this.isactive = isactive;
 	}
 
-	public String getImagepath() {
-		return imagepath;
-	}
+	public byte[] getImage() {
+        return imagepath;
+    }
 
-	public void setImagepath(String imagepath) {
-		this.imagepath = imagepath;
-	}
+    public void setImage(byte[] imagepath) {
+        this.imagepath = imagepath;
+    }
 
 	@Override
 	public String toString() {

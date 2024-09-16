@@ -32,6 +32,7 @@ public class LoginServlet extends HttpServlet {
             req.setAttribute("errorMessage", "Invalid username");
         } else {
             HttpSession session = req.getSession();
+            session.setAttribute("user", user);
             session.setAttribute("username", user.getUsername());
             resp.sendRedirect(req.getContextPath() + "/home");
             return; 
