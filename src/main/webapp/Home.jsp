@@ -48,7 +48,7 @@ if (session.getAttribute("restaurantList") == null) {
 				<a href="${pageContext.request.contextPath}/home" class="nav-link">Home</a>
 				<!--  <a href="#" class="nav-link">Menu</a> -->
 				<a href="#" class="nav-link">Contact Us</a> <a
-					href="${pageContext.request.contextPath}/cart" class="nav-link">View
+					href="${pageContext.request.contextPath}/Cart.jsp" class="nav-link">View
 					Cart</a>
 				<%
 				if (session.getAttribute("username") != null) {

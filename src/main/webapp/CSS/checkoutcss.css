@@ -1,0 +1,186 @@
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body Styling */
+body {
+    font-family: 'Helvetica Neue', sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+    line-height: 1.6;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* Main Container */
+#main {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    padding: 0px;
+}
+
+/* Nav Bar */
+nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-radius:10px;
+    height: 60px;
+    padding: 0 30px;
+    background-color: #FFD700;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+#nav-left {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+#nav-left img {
+    height: 40px;
+    width: auto;
+}
+
+#nav-left h2 {
+    font-size: 1.5rem;
+    color: #333;
+}
+
+#nav-right {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.nav-link {
+    font-size: 1rem;
+    text-decoration: none;
+    color: #333;
+    padding: 10px;
+    transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+    color: #007BFF;
+}
+
+#profile-image {
+	display: none;
+}
+
+/* Checkout Page */
+h1 {
+    margin-top: 80px;
+    text-align: center;
+    font-size: 2.5rem;
+}
+
+.cart-summary {
+    margin: 30px auto;
+    width: 100%;
+    max-width: 600px;
+}
+
+.cart-summary h2 {
+    margin-bottom: 20px;
+    text-align: center;
+    font-size: 2rem;
+    color: #333;
+}
+
+.list-group-item {
+    display: flex;
+    justify-content: space-between;
+    font-size: 1.2rem;
+}
+
+.list-group-item strong {
+    font-size: 1.3rem;
+}
+
+/* Payment Form */
+.payment-form {
+    margin: 30px auto;
+    width: 100%;
+    max-width: 600px;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.payment-form h2 {
+    margin-bottom: 20px;
+    text-align: center;
+    font-size: 2rem;
+    color: #333;
+}
+
+.payment-form .form-label {
+    font-size: 1.1rem;
+    margin-bottom: 10px;
+}
+
+.payment-form .form-select, 
+.payment-form .form-control {
+    height: 45px;
+    font-size: 1.1rem;
+    border-radius: 5px;
+    margin-bottom: 15px;
+}
+
+/* Button Styling */
+button {
+    display: block;
+    width: 100%;
+    padding: 15px;
+    font-size: 1.2rem;
+    background-color: #FFD700;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #f0c14b;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #f50e0e;
+    color: #fff;
+}
+
+footer a {
+    color: #FFD700;
+    text-decoration: none;
+    margin: 0 5px;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .cart-summary, .payment-form {
+        width: 100%;
+        padding: 15px;
+    }
+    h1 {
+        font-size: 2rem;
+    }
+}

@@ -1,5 +1,7 @@
 package com.Food_Delivery_App.Model;
 
+import java.util.Arrays;
+
 public class CartItem {
 	
 	private int item_id;
@@ -8,12 +10,16 @@ public class CartItem {
 	private float price;
 	private int quantity;
 	private float subtotal;
+	private byte[] imagePath;
 	
 	public CartItem() {
 		// TODO Auto-generated constructor stub
 	}
 
-	public CartItem(int item_id, int restaurant_id, String name, float price, int quantity, float subtotal) {
+	
+
+	public CartItem(int item_id, int restaurant_id, String name, float price, int quantity, float subtotal,
+			byte[] imagePath) {
 		super();
 		this.item_id = item_id;
 		this.restaurant_id = restaurant_id;
@@ -21,6 +27,17 @@ public class CartItem {
 		this.price = price;
 		this.quantity = quantity;
 		this.subtotal = subtotal;
+		this.imagePath = imagePath;
+	}
+
+
+
+	public byte[] getImagePath() {
+		return imagePath;
+	}
+
+	public void setImagePath(byte[] imagePath) {
+		this.imagePath = imagePath;
 	}
 
 	public int getItem_id() {
@@ -74,8 +91,11 @@ public class CartItem {
 	@Override
 	public String toString() {
 		return "CartItem [item_id=" + item_id + ", restaurant_id=" + restaurant_id + ", name=" + name + ", price="
-				+ price + ", quantity=" + quantity + ", subtotal=" + subtotal + "]";
+				+ price + ", quantity=" + quantity + ", subtotal=" + subtotal + ", imagePath="
+				+ Arrays.toString(imagePath) + "]";
 	}
+
+	
 	
 	
 	

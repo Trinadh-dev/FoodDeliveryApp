@@ -27,4 +27,43 @@ document.querySelectorAll('.decrease').forEach(button => {
         }
     });
 });
+document.addEventListener("DOMContentLoaded", function () {
+    const addToCartButtons = document.querySelectorAll(".add-to-cart");
+    const confirmButtons = document.querySelectorAll(".confirm-add-to-cart");
+    const quantityControls = document.querySelectorAll(".quantity-controls");
+    const popup = document.getElementById("popup");
+
+    addToCartButtons.forEach((button, index) => {
+        button.addEventListener("click", function () {
+            // Show quantity controls and confirm button
+            addToCartButtons[index].classList.add("d-none");
+            quantityControls[index].classList.remove("d-none");
+            confirmButtons[index].classList.remove("d-none");
+        });
+    });
+
+    confirmButtons.forEach((button, index) => {
+        button.addEventListener("click", function (e) {
+            e.preventDefault(); // Prevent form submission
+
+            // Show the popup
+            popup.classList.remove("d-none");
+            popup.style.bottom = "20px"; // Slide in
+
+            // Hide popup after 3 seconds
+            setTimeout(function () {
+                popup.style.bottom = "-100px"; // Slide out
+            }, 3000);
+
+            // Delay form submission by 3.5 seconds to allow popup to display
+            setTimeout(function () {
+                button.closest("form").submit(); // Now submit the form
+            }, 500);
+        });
+    });
+});
+
+
+
+
 

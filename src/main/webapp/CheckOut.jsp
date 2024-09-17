@@ -1,12 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ page import="java.util.Map"%>
-<%@ page import="com.Food_Delivery_App.Model.Cart"%>
+<%@ page import="com.Food_Delivery_App.DAOImplementation.Cart"%>
 <%@ page import="com.Food_Delivery_App.Model.CartItem"%>
 <%@ page session="true"%>
 
 <%
-    // Retrieve the cart from the session
-    Cart cart = (Cart) session.getAttribute("cart");
+// Retrieve the cart from the session
+   Cart cart = (Cart) session.getAttribute("cart");
 
     // If the cart is null or empty, redirect to the home page
     if (cart == null || cart.getItems().isEmpty()) {
@@ -27,7 +27,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Checkout - Food Delivery App</title>
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/CSS/style1.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/CSS/checkoutcss.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
@@ -101,10 +101,10 @@
                 <div class="mb-3">
                     <label for="paymentMethod" class="form-label">Select Payment Method</label>
                     <select class="form-select" id="paymentMethod" name="paymentMethod" required>
+                        <option value="cod">Cash on Delivery (COD)</option>
                         <option value="creditCard">Credit/Debit Card</option>
                         <option value="upi">UPI</option>
                         <option value="netBanking">Net Banking</option>
-                        <option value="cod">Cash on Delivery (COD)</option>
                     </select>
                 </div>
 

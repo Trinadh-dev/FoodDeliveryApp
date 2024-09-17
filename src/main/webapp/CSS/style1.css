@@ -1,429 +1,670 @@
 /* Reset */
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
 }
 
 /* Body Styling */
 body {
-    font-family: 'Helvetica Neue', sans-serif;
-    background-color: #f4f4f4;
-    color: #333;
-    line-height: 1.6;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    /* justify-content: space-between; */
+	font-family: 'Helvetica Neue', sans-serif;
+	background-color: #f4f4f4;
+	color: #333;
+	line-height: 1.6;
+	min-height: 100vh;
+	display: flex;
+	flex-direction: column;
+	/* justify-content: space-between; */
 }
 
-
 #main {
-    flex-grow: 1; 
-    display: flex;
-    flex-direction: column;
+	flex-grow: 1;
+	display: flex;
+	flex-direction: column;
 }
 
 /* Nav Bar */
 nav {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    height: 60px;
-    padding: 0 30px;
-    background-color: #FFD700;
-    border-bottom: 1px solid #ddd;
-    position: fixed;
-    width: 100%;
-    top: 0;
-    z-index: 1000;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	height: 60px;
+	padding: 0 30px;
+	background-color: #FFD700;
+	border-bottom: 1px solid #ddd;
+	position: fixed;
+	width: 100%;
+	top: 0;
+	z-index: 1000;
 }
 
 #nav-left {
-    display: flex;
-    align-items: center;
-    gap: 20px;
+	display: flex;
+	align-items: center;
+	gap: 20px;
 }
 
 #nav-left img {
-    height: 40px;
-    width: auto;
+	height: 40px;
+	width: auto;
 }
 
 #nav-left h2 {
-    font-size: 1.5rem;
-    color: #333;
+	font-size: 1.5rem;
+	color: #333;
 }
 
 #nav-right {
-    display: flex;
-    align-items: center;
-    gap: 20px;
+	display: flex;
+	align-items: center;
+	gap: 20px;
 }
 
 .nav-link {
-    font-size: 1rem;
-    text-decoration: none;
-    color: #333;
-    padding: 10px;
-    transition: color 0.3s ease;
+	font-size: 1rem;
+	text-decoration: none;
+	color: #333;
+	padding: 10px;
+	transition: color 0.3s ease;
 }
 
 .nav-link:hover {
-    color: #007BFF;
+	color: #007BFF;
 }
 
-
 #profile-image {
-    display: none;
+	display: none;
 }
 
 /* corosol */
 .carousel.card-layout {
-    display: flex;
-
-    justify-content: space-between;
-    align-items: center;
-    width: 80%;
-    /* Set width to 80% */
-    margin: 0 auto;
-    /* Center the carousel */
-    padding: 20px;
-    background-color: #fff;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-    border-radius: 10px;
-    margin-top: 80px;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	width: 80%;
+	/* Set width to 80% */
+	margin: 0 auto;
+	/* Center the carousel */
+	padding: 20px;
+	background-color: #fff;
+	box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+	border-radius: 10px;
+	margin-top: 80px;
 }
 
 .carousel-content {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    flex: 1;
-    padding-right: 20px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	flex: 1;
+	padding-right: 20px;
 }
 
 .carousel-content h1 {
-    font-size: 2.5rem;
-    margin-bottom: 20px;
-    color: #333;
+	font-size: 2.5rem;
+	margin-bottom: 20px;
+	color: #333;
 }
 
 .carousel-content p {
-    padding-left: 20px;
-    font-size: 1.2rem;
-    margin-bottom: 20px;
-    color: #555;
+	padding-left: 20px;
+	font-size: 1.2rem;
+	margin-bottom: 20px;
+	color: #555;
 }
 
 .carousel-content button {
-    padding: 10px 20px;
-    background-color: #FFD700;
-    border: none;
-    border-radius: 30px;
-    cursor: pointer;
-    font-size: 1.1rem;
-    color: #fff;
-    transition: background-color 0.3s ease;
+	padding: 10px 20px;
+	background-color: #FFD700;
+	border: none;
+	border-radius: 30px;
+	cursor: pointer;
+	font-size: 1.1rem;
+	color: #fff;
+	transition: background-color 0.3s ease;
 }
 
 .carousel-content button:hover {
-    background-color: #f0c14b;
+	background-color: #f0c14b;
 }
 
 .carousel-image {
-    flex: 1;
-    display: flex;
-    justify-content: center;
+	flex: 1;
+	display: flex;
+	justify-content: center;
 }
 
 .carousel-image img {
-    max-width: 100%;
-    height: auto;
-    border-radius: 10px;
+	max-width: 100%;
+	height: auto;
+	border-radius: 10px;
 }
 
 /* Smooth Scroll */
 html {
-    scroll-behavior: smooth;
+	scroll-behavior: smooth;
 }
-@media (max-width: 768px) {
-    .card-layout {
-        flex-direction: column;
-        align-items: center;
-    }
 
-    .carousel-content {
-        padding-right: 0;
-        text-align: center;
-    }
-
-    .carousel-image {
-        margin-top: 20px;
-    }
+@media ( max-width : 768px) {
+	.card-layout {
+		flex-direction: column;
+		align-items: center;
+	}
+	.carousel-content {
+		padding-right: 0;
+		text-align: center;
+	}
+	.carousel-image {
+		margin-top: 20px;
+	}
 }
 
 /* Restaurant List */
 .Restaurant_List {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    margin-top: 70px;
-    padding: 20px;
+	display: flex;
+	justify-content: center;
+	flex-wrap: wrap;
+	margin-top: 70px;
+	padding: 20px;
 }
 
 .Restaurant_card {
-    display: flex;
-    flex-direction: column;
-    align-items: center;    
-    border: 1px solid #ddd;
-    width: 220px;
-    margin: 15px;
-    padding: 15px;
-    border-radius: 10px;
-    background-color: #fff;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	border: 1px solid #ddd;
+	width: 220px;
+	margin: 15px;
+	padding: 15px;
+	border-radius: 10px;
+	background-color: #fff;
+	box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+	transition: transform 0.3s ease;
 }
 
 .Restaurant_card:hover {
-    transform: translateY(-5px);
+	transform: translateY(-5px);
 }
 
 .Restaurant_card img {
-    width: 100%;
-    height: 190px; /* Set a fixed height */
-    object-fit: cover;
-    border-radius: 5px;
-    margin-bottom: 10px;
+	width: 100%;
+	height: 190px; /* Set a fixed height */
+	object-fit: cover;
+	border-radius: 5px;
+	margin-bottom: 10px;
 }
 
 .Restaurant_card h1 {
-    font-size: 1.2rem;
-    color: #333;
+	font-size: 1.2rem;
+	color: #333;
 }
 
 .Restaurant_card h2 {
-    font-size: 1rem;
-    color: #666;
+	font-size: 1rem;
+	color: #666;
 }
 
 .Restaurant_card h3 {
-    font-size: 0.9rem;
-    color: #999;
+	font-size: 0.9rem;
+	color: #999;
 }
-.Restaurant_card button{
-    padding: 5px;
-    border-radius: 30px;    
-}
-.Restaurant_card a{
-    font-size: 10px;
 
+.Restaurant_card button {
+	padding: 5px;
+	border-radius: 30px;
+}
+
+.Restaurant_card a {
+	font-size: 10px;
 }
 /* Menu List */
-.name{
-    margin-top: 60px;
-    display: flex;
-    justify-content: center;
+.name {
+	margin-top: 60px;
+	display: flex;
+	justify-content: center;
 }
 
 /* Menu List */
 .Menu_List {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-top: 20px;
-    padding: 20px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	margin-top: 20px;
+	padding: 20px;
 }
 
 .Menu_card {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
-    max-width: 800px;
-    margin-bottom: 15px;
-    padding: 15px;
-    border: 1px solid #ddd;
-    border-radius: 10px;
-    background-color: #fff;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	width: 100%;
+	max-width: 800px;
+	margin-bottom: 15px;
+	padding: 15px;
+	border: 1px solid #ddd;
+	border-radius: 10px;
+	background-color: #fff;
+	box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+	transition: transform 0.3s ease;
 }
 
 .Menu_card:hover {
-    transform: translateY(-5px);
+	transform: translateY(-5px);
 }
 
 /* Image container styling */
 .Menu_card-image {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
 }
 
 .Menu_card img {
-    width: 150px;
-    height: 150px;
-    border-radius: 5px;
-    object-fit: cover;
+	width: 150px;
+	height: 150px;
+	border-radius: 5px;
+	object-fit: cover;
 }
 
 .Menu_card-content {
-    flex-grow: 1;
-    padding-right: 20px;
+	flex-grow: 1;
+	padding-right: 20px;
 }
 
 .Menu_card h1 {
-    font-size: 1.5rem;
-    margin-bottom: 10px;
-    color: #333;
+	font-size: 1.5rem;
+	margin-bottom: 10px;
+	color: #333;
 }
 
 .Menu_card h3 {
-    font-size: 1.1rem;
-    color: #999;
-    margin-bottom: 10px;
+	font-size: 1.1rem;
+	color: #999;
+	margin-bottom: 10px;
 }
 
 .Menu_card h2 {
-    font-size: 1rem;
-    color: #666;
-    margin-bottom: 15px;
+	font-size: 1rem;
+	color: #666;
+	margin-bottom: 15px;
 }
 
 .add-to-cart {
-    margin-top: 10px;
-    padding: 8px 12px;
-    border-radius: 30px;
-    background-color: #FFD700;
-    border: none;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
+	margin-top: 10px;
+	padding: 8px 12px;
+	border-radius: 30px;
+	background-color: #FFD700;
+	border: none;
+	cursor: pointer;
+	transition: background-color 0.3s ease;
 }
 
 .add-to-cart:hover {
-    background-color: #ffcc00;
+	background-color: #ffcc00;
 }
 
 .quantity-controls {
-    margin-top: 10px;
-    display: flex;
-    align-items: center;
+	margin-top: 10px;
+	display: flex;
+	align-items: center;
 }
 
 .quantity-controls button {
-	height:40px;
-	width:40px;
+	height: 40px;
+	width: 40px;
 	display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: #FFD700;
-    border: none;
-    padding: 10px;
-    font-size: 18px;
-    border-radius: 50%;
-    cursor: pointer;
-    margin: 0 5px;
+	justify-content: center;
+	align-items: center;
+	background-color: #FFD700;
+	border: none;
+	padding: 10px;
+	font-size: 18px;
+	border-radius: 50%;
+	cursor: pointer;
+	margin: 0 5px;
 }
 
 .quantity-controls input {
-    width: 50px;
-    text-align: center;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    font-size: 16px;
+	width: 50px;
+	text-align: center;
+	border: 1px solid #ddd;
+	border-radius: 5px;
+	font-size: 16px;
 }
-.confirm-add-to-cart{
+
+.confirm-add-to-cart {
 	margin: 10px 0px 0px 40px;
 	padding: 8px 12px;
-    border-radius: 30px;
-    background-color: #FFD700;
-    border: none;
-    cursor: pointer;
+	border-radius: 30px;
+	background-color: #FFD700;
+	border: none;
+	cursor: pointer;
 }
 
 .d-none {
-    display: none;
+	display: none;
 }
 
+@media ( max-width : 768px) {
+	.Menu_card {
+		flex-direction: column;
+		text-align: center;
+	}
+	.Menu_card-image {
+		width: 100%;
+	}
+}
+
+/*Cart Section*/
+.cart-List {
+	margin-top: 10px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+/* Cart Item Styling */
+.cart {
+	display: flex;
+	align-items: center;
+	border-radius: 15px;
+	border: 1px solid #ddd;
+	width: 100%;
+	max-width: 1000px;
+	margin-bottom: 20px;
+	padding: 15px;
+	background-color: #fff;
+	box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+	transition: transform 0.3s ease;
+}
+
+/* Cart Item Hover Effect */
+.cart:hover {
+	transform: translateY(-5px);
+}
+
+/* Sub-cart Sections */
+.sub-cart {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	margin: 0 10px;
+	background-color: #fffefe;
+}
+
+.image-container {
+	flex: 1;
+}
+
+.image-container img {
+	width: 150px;
+	height: 150px;
+	border-radius: 5px;
+	object-fit: cover;
+}
+
+.item-details {
+	flex: 2;
+	text-align: center;
+}
+
+.item-details h1 {
+	font-size: 1.5rem;
+	font-family: 'Times New Roman', Times, serif;
+	margin-bottom: 5px;
+}
+
+.item-details h5 {
+	font-size: 1.2rem;
+	color: #555;
+}
+
+/* Quantity Container */
+.quantity-container {
+	flex: 2;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: center;
+}
+
+.quantity-container input {
+	width: 60px;
+	padding: 5px;
+	border-radius: 5px;
+	border: 1px solid #ddd;
+	text-align: center;
+	margin: 0 10px;
+}
+
+.quantity-button {
+	border-radius: 100px;
+	width: 30px;
+	height: 30px;
+	font-size: 1.2rem;
+	margin: 0 5px;
+	background-color: #007bff;
+	color: #fff;
+	border: none;
+	cursor: pointer;
+	transition: background-color 0.3s ease;
+}
+
+.quantity-button:hover {
+	background-color: #0056b3;
+}
+
+/* Subtotal Section */
+.subtotal {
+	flex: 1;
+	text-align: center;
+}
+
+.subtotal h3 {
+	font-size: 1.2rem;
+	color: #333;
+}
+
+/* Action Buttons */
+.actions {
+	flex: 1;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.action-button {
+	padding: 5px 10px;
+	border-radius: 5px;
+	border: none;
+	cursor: pointer;
+	margin: 5px 0;
+	font-size: 0.9rem;
+	color: #fff;
+	transition: background-color 0.3s ease;
+	width: 100%;
+}
+
+.update-button {
+	background-color: #28a745;
+	/* Update button */
+}
+
+.update-button:hover {
+	background-color: #218838;
+}
+
+.remove-button {
+	background-color: #dc3545;
+	/* Remove button */
+}
+
+.remove-button:hover {
+	background-color: #c82333;
+}
+
+/* Small Devices (Tablets and Mobile Phones) */
 @media (max-width: 768px) {
-    .Menu_card {
-        flex-direction: column;
-        text-align: center;
+    .cart-List {
+        margin-top: 20px; /* Slightly adjusted margin for smaller screens */
     }
 
-    .Menu_card-image {
-        width: 100%;
+    .cart {
+        flex-direction: column; /* Stack items vertically */
+        align-items: flex-start; /* Align items to start */
+        padding: 10px; /* Adjust padding for smaller screens */
+    }
+
+    .sub-cart {
+        margin: 10px 0; /* Adjust margin for vertical stacking */
+        text-align: left; /* Align text to the left */
+    }
+
+    .image-container img {
+        width: 120px; /* Adjust image size */
+        height: 120px;
+    }
+
+    .item-details h1 {
+        font-size: 1.2rem; /* Smaller font size for smaller screens */
+    }
+
+    .item-details h5 {
+        font-size: 1rem; /* Smaller font size for smaller screens */
+    }
+
+    .quantity-container {
+        flex-direction: column; /* Stack quantity controls vertically */
+        align-items: flex-start; /* Align items to start */
+    }
+
+    .quantity-button {
+        margin: 5px 0; /* Adjust margin for vertical stacking */
+    }
+
+    #quantity {
+        width: 50px; /* Adjust width for smaller screens */
+    }
+
+    .subtotal h3 {
+        font-size: 1rem; /* Smaller font size for smaller screens */
+    }
+
+    .actions {
+        align-items: flex-start; /* Align action buttons to start */
+    }
+
+    .action-button {
+        font-size: 0.8rem; /* Smaller font size for smaller screens */
     }
 }
+
+/* Extra Small Devices (Phones in Portrait Mode) */
+@media (max-width: 576px) {
+    .cart {
+        padding: 5px; /* Further reduce padding */
+    }
+
+    .image-container img {
+        width: 100px; /* Further reduce image size */
+        height: 100px;
+    }
+
+    .item-details h1 {
+        font-size: 1rem; /* Further reduce font size */
+    }
+
+    .item-details h5 {
+        font-size: 0.9rem; /* Further reduce font size */
+    }
+
+    .quantity-container {
+        width: 100%; /* Ensure full width for quantity container */
+    }
+
+    .quantity-button {
+        width: 25px; /* Smaller buttons for smaller screens */
+        height: 25px;
+        font-size: 1rem;
+    }
+
+    #quantity {
+        width: 40px; /* Further reduce width */
+    }
+
+    .subtotal h3 {
+        font-size: 0.9rem; /* Further reduce font size */
+    }
+
+    .actions {
+        width: 100%; /* Ensure full width for actions container */
+    }
+
+    .action-button {
+        font-size: 0.7rem; /* Further reduce font size */
+    }
+}
+
 
 /* Footer */
 footer {
-    background-color: #f50e0e;
-    color: #f4f4f4;
-    padding: 20px 0;
-    text-align: center;
-    margin-top: auto;
+	background-color: #f50e0e;
+	color: #f4f4f4;
+	padding: 20px 0;
+	text-align: center;
+	margin-top: auto;
 }
 
 footer p {
-    margin-bottom: 5px;
+	margin-bottom: 5px;
 }
 
 footer a {
-    color: #FFD700;
-    text-decoration: none;
+	color: #FFD700;
+	text-decoration: none;
 }
 
 footer a:hover {
-    color: #007BFF;
+	color: #007BFF;
 }
 
 /* Responsive Design */
-@media (max-width: 768px) {
-    nav {
-        padding: 0 20px;
-    }
-
-    #nav-left h2 {
-        font-size: 1.2rem;
-    }
-
-    .nav-link {
-        font-size: 0.9rem;
-    }
-
-    .carousel img {
-        max-width: 768px;
-        padding: 10px;
-    }
-
-    .Restaurant_card {
-        width: 30%;
-    }
+@media ( max-width : 768px) {
+	nav {
+		padding: 0 20px;
+	}
+	#nav-left h2 {
+		font-size: 1.2rem;
+	}
+	.nav-link {
+		font-size: 0.9rem;
+	}
+	.carousel img {
+		max-width: 768px;
+		padding: 10px;
+	}
+	.Restaurant_card {
+		width: 30%;
+	}
 }
 
-@media (max-width: 600px) {
-    nav {
-        padding: 0 10px;
-    }
-
-    .nav-link {
-        display: none;
-    }
-
-    #profile-image {
-        display: inline-block;
-    }
-
-    .carousel img {
-        max-width: 600px;
-        padding: 10px;
-    }
-
-    .Restaurant_card {
-        width: 40%;
-    }
+@media ( max-width : 600px) {
+	nav {
+		padding: 0 10px;
+	}
+	.nav-link {
+		display: none;
+	}
+	#profile-image {
+		display: inline-block;
+	}
+	.carousel img {
+		max-width: 600px;
+		padding: 10px;
+	}
+	.Restaurant_card {
+		width: 40%;
+	}
 }

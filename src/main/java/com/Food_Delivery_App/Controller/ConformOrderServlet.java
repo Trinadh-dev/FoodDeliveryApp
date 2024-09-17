@@ -14,7 +14,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import com.Food_Delivery_App.Model.Cart;
+import com.Food_Delivery_App.DAOImplementation.Cart;
 import com.Food_Delivery_App.Model.CartItem;
 import com.Food_Delivery_App.Model.User;
 import com.Food_Delivery_App.Uitl.DBConnector;

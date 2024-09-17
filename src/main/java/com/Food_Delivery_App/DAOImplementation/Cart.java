@@ -1,6 +1,8 @@
-package com.Food_Delivery_App.Model;
+package com.Food_Delivery_App.DAOImplementation;
 
 import java.util.HashMap;
+
+import com.Food_Delivery_App.Model.CartItem;
 
 public class Cart {
 

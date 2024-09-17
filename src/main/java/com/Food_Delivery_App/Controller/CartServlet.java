@@ -1,7 +1,6 @@
 package com.Food_Delivery_App.Controller;
 
 import java.io.IOException;
-
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -9,11 +8,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import com.Food_Delivery_App.DAOImplementation.Cart;
 import com.Food_Delivery_App.DAOImplementation.MenuDaoImplementation;
-import com.Food_Delivery_App.Model.Cart;
 import com.Food_Delivery_App.Model.CartItem;
 import com.Food_Delivery_App.Model.Menu;
-
 
 @WebServlet("/cart")
 public class CartServlet extends HttpServlet {
@@ -32,24 +30,25 @@ public class CartServlet extends HttpServlet {
         String action = request.getParameter("action");
         if ("add".equals(action)) {
             addItemToCart(request, cart);
+            session.setAttribute("cart", cart);
+
+            if ("XMLHttpRequest".equals(request.getHeader("X-Requested-With"))) {
+                // Handle AJAX request
+                response.setContentType("text/plain");
+                response.getWriter().write("success");
+            } else {
+                response.sendRedirect("MenuPage.jsp");
+            }
         } else if ("update".equals(action)) {
             updateCart(request, cart);
+            response.sendRedirect("Cart.jsp");
         } else if ("remove".equals(action)) {
             removeItemFromCart(request, cart);
-        }
-
-        session.setAttribute("cart", cart);
-
-        if (request.getHeader("X-Requested-With") != null) {
-            // Handle AJAX request
-            response.setContentType("application/json");
-            response.getWriter().write("{\"status\":\"success\"}");
-        } else {
             response.sendRedirect("Cart.jsp");
         }
     }
 
-    public void addItemToCart(HttpServletRequest request, Cart cart) {
+    private void addItemToCart(HttpServletRequest request, Cart cart) {
         int item_id = Integer.parseInt(request.getParameter("item_id"));
         int quantity = Integer.parseInt(request.getParameter("quantity"));
 
@@ -63,7 +62,8 @@ public class CartServlet extends HttpServlet {
                     menuItem.getMenuname(),
                     menuItem.getPrice(),
                     quantity,
-                    quantity * menuItem.getPrice()
+                    quantity * menuItem.getPrice(),
+                    menuItem.getImagepath()
             );
 
             cart.Add(item);
@@ -77,7 +77,7 @@ public class CartServlet extends HttpServlet {
         cart.updateItem(item_id, quantity);
     }
 
-    public void removeItemFromCart(HttpServletRequest request, Cart cart) {
+    private void removeItemFromCart(HttpServletRequest request, Cart cart) {
         int item_id = Integer.parseInt(request.getParameter("item_id"));
         cart.removeItem(item_id);
     }
