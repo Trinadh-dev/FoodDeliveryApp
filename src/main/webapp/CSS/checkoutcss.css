@@ -8,7 +8,7 @@
 /* Body Styling */
 body {
     font-family: 'Helvetica Neue', sans-serif;
-    background-color: #f4f4f4;
+    background-color: #FAF7F0;
     color: #333;
     line-height: 1.6;
     display: flex;
@@ -32,7 +32,7 @@ nav {
     border-radius:10px;
     height: 60px;
     padding: 0 30px;
-    background-color: #FFD700;
+    background-color: #FFF7D1;
     position: fixed;
     top: 0;
     width: 100%;
@@ -160,12 +160,12 @@ button:hover {
 footer {
     text-align: center;
     padding: 20px;
-    background-color: #f50e0e;
+    background-color: #FFD09B;
     color: #fff;
 }
 
 footer a {
-    color: #FFD700;
+    color: #433878;
     text-decoration: none;
     margin: 0 5px;
 }

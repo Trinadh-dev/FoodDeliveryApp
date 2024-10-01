@@ -8,7 +8,7 @@
 /* Body Styling */
 body {
 	font-family: 'Helvetica Neue', sans-serif;
-	background-color: #f4f4f4;
+	background-color: #FAF7F0;
 	color: #333;
 	line-height: 1.6;
 	min-height: 100vh;
@@ -30,7 +30,7 @@ nav {
 	justify-content: space-between;
 	height: 60px;
 	padding: 0 30px;
-	background-color: #FFD700;
+	background-color: #FFF7D1;
 	border-bottom: 1px solid #ddd;
 	position: fixed;
 	width: 100%;
@@ -610,8 +610,8 @@ html {
 
 /* Footer */
 footer {
-	background-color: #f50e0e;
-	color: #f4f4f4;
+	background-color: #FFD09B;
+	color: red;
 	padding: 20px 0;
 	text-align: center;
 	margin-top: auto;
@@ -622,7 +622,7 @@ footer p {
 }
 
 footer a {
-	color: #FFD700;
+	color: #433878;
 	text-decoration: none;
 }
 
